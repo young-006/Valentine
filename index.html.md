@@ -1,0 +1,170 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+<meta charset="UTF-8">  
+<meta name="viewport" content="width=device-width, initial-scale=1.0">  
+<title>For My Princess ❤️</title>  
+  
+<style>  
+body {  
+    margin: 0;  
+    font-family: 'Segoe UI', sans-serif;  
+    background: linear-gradient(135deg, #ff416c, #ff4b2b);  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    height: 100vh;  
+    overflow: hidden;  
+    color: white;  
+}  
+  
+/* Floating Hearts */  
+.heart {  
+    position: absolute;  
+    color: rgba(255,255,255,0.6);  
+    animation: float 6s linear infinite;  
+}  
+  
+@keyframes float {  
+    0% {transform: translateY(100vh) scale(1);}  
+    100% {transform: translateY(-10vh) scale(1.5);}  
+}  
+  
+/* Envelope */  
+.envelope {  
+    width: 200px;  
+    height: 120px;  
+    background: white;  
+    position: relative;  
+    cursor: pointer;  
+    border-radius: 10px;  
+    display: flex;  
+    justify-content: center;  
+    align-items: center;  
+    color: #ff416c;  
+    font-weight: bold;  
+}  
+  
+.card {  
+    display: none;  
+    background: rgba(255,255,255,0.1);  
+    backdrop-filter: blur(12px);  
+    padding: 30px;  
+    border-radius: 20px;  
+    width: 360px;  
+    text-align: center;  
+    box-shadow: 0 0 30px rgba(0,0,0,0.4);  
+}  
+  
+.slider {  
+    position: relative;  
+    width: 200px;  
+    height: 250px;  
+    margin: auto;  
+    overflow: hidden;  
+    border-radius: 15px;  
+}  
+  
+.slider img {  
+    width: 100%;  
+    height: 100%;  
+    object-fit: cover;  
+    position: absolute;  
+    opacity: 0;  
+    transition: opacity 1s ease-in-out;  
+}  
+  
+.slider img.active {  
+    opacity: 1;  
+}  
+  
+h1 {  
+    font-size: 22px;  
+}  
+  
+.message {  
+    font-size: 15px;  
+    line-height: 1.6;  
+    margin-top: 15px;  
+}  
+  
+.signature {  
+    margin-top: 15px;  
+    font-style: italic;  
+}  
+  
+</style>  
+</head>  
+  
+<body>  
+  
+<!-- Background Music -->  
+<audio id="bgMusic" loop>  
+  <source src="YOUR_MUSIC_LINK.mp3" type="audio/mpeg">  
+</audio>  
+  
+<!-- Envelope -->  
+<div class="envelope" onclick="openCard()">  
+    Tap To Open ❤️  
+</div>  
+  
+<!-- Main Card -->  
+<div class="card" id="valCard">  
+  
+    <h1>Happy Valentine, My Princess ❤️</h1>  
+  
+    <div class="slider">  
+        <img src="PHOTO_LINK_1" class="active">  
+        <img src="PHOTO_LINK_2">  
+        <img src="PHOTO_LINK_3">  
+    </div>  
+  
+    <div class="message">  
+        Some people come into your life quietly,  
+        but somehow leave the loudest impact.  
+  
+        You have a presence that feels rare —  
+        soft, beautiful, and unforgettable.  
+  
+        Today isn’t about labels or expectations.  
+        It’s simply about appreciation.  
+  
+        And I appreciate you… more than I say.  
+    </div>  
+  
+    <div class="signature">  
+        — From someone who values you ❤️  
+    </div>  
+  
+</div>  
+  
+<script>  
+function openCard() {  
+    document.querySelector(".envelope").style.display = "none";  
+    document.getElementById("valCard").style.display = "block";  
+    document.getElementById("bgMusic").play();  
+}  
+  
+/* Photo Slider */  
+let slides = document.querySelectorAll(".slider img");  
+let current = 0;  
+  
+setInterval(() => {  
+    slides[current].classList.remove("active");  
+    current = (current + 1) % slides.length;  
+    slides[current].classList.add("active");  
+}, 3000);  
+  
+/* Floating Hearts Generator */  
+for(let i=0; i<20; i++){  
+    let heart = document.createElement("div");  
+    heart.className = "heart";  
+    heart.innerHTML = "❤️";  
+    heart.style.left = Math.random() * 100 + "vw";  
+    heart.style.animationDuration = (3 + Math.random() * 3) + "s";  
+    document.body.appendChild(heart);  
+}  
+</script>  
+  
+</body>  
+</html>  
